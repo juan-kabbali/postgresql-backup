@@ -7,3 +7,4 @@ install:
 
 test:
 	PYTHONPATH=./src pytest
+	# python -m pytest

@@ -5,7 +5,7 @@ with open('README.md', encoding='UTF-8') as readme_file:
 
 
 setup(
-    name='pg-backup',
+    name='pgbackup',
     version='0.1.0',
     description='Postgres database backups locally or to AWS S3.',
     long_description=readme,

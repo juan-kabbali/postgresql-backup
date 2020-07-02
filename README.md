@@ -13,13 +13,13 @@ Pass in a full database url, storage driver and destination.
 **S3 example with bucket name:**
 
 ````yaml
-$ pgbackup postgres://user@example.com:5432/db_name --driver s3 my_bucket_name
+$ pg-backup postgres://user@example.com:5432/db_name --driver s3 my_bucket_name
 ````
 
 **Local example with file name:**
 
 ````yaml
-$ pgbackup postgres://user@example.com:5432/db_name --driver local /var/local/db_name/backups/dump_2018_09_30.sql
+$ pg-backup postgres://user@example.com:5432/db_name --driver local /var/local/db_name/backups/dump_2018_09_30.sql
 ````
 
 ## Running Tests
