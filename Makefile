@@ -8,3 +8,6 @@ install:
 test:
 	PYTHONPATH=./src pytest
 	# python -m pytest
+
+build:
+	python setup.py bdist_wheel

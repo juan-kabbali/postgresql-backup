@@ -21,7 +21,22 @@ def create_parser():
     parser.add_argument('--driver',
                         help="how and where to store the backup",
                         nargs=2,
+                        metavar=('driver', 'destination'),
                         action=DriverAction,
                         required=True)
     return parser
 
+
+def main():
+    import boto3
+    from src.pgbackup import pgdump, storage
+
+    args = create_parser().parse_args()
+    dump = pgdump.dump(args.url)
+
+    if args.driver == 's3':
+        client = boto3.client('s3')
+        storage.s3(client, dump.stdout, args.destination, 'example.sql')
+    elif args.driver == 'local':
+        outfile = open(args.destination, 'wb')
+        storage.local(dump.stdout, outfile)
